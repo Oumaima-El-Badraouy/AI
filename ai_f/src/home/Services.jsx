@@ -3,36 +3,36 @@ import React from 'react';
 const Services = () => {
   const services = [
     {
-      title: "Développement Web",
+      title: "Chatbot pour Répondre aux Questions",
       description:
-        "Nous créons des sites modernes, performants et adaptés à vos besoins spécifiques. Que ce soit pour un site vitrine, un e-commerce, ou une plateforme interactive, nous avons l'expertise nécessaire pour vous offrir une solution clé en main.",
-      icon: "🌐",
+        "Nous créons des chatbots intelligents qui répondent à toutes vos questions grâce à des technologies avancées comme l'API de ChatGPT. Ces chatbots peuvent être intégrés à des sites web, applications et plateformes pour fournir une assistance instantanée aux utilisateurs.",
+      icon: "🤖",
       subServices: [
-        "Sites vitrine sur mesure",
-        "E-commerce avec intégration de paiement",
-        "Plateformes interactives (blogs, forums, etc.)",
+        "Réponses automatisées à des questions fréquemment posées",
+        "Support client 24/7 via chatbot",
+        "Solutions personnalisées pour chaque entreprise",
       ],
     },
     {
-      title: "Application Mobile",
+      title: "Intégration d'API pour Chatbots",
       description:
-        "Nous développons des applications mobiles intuitives et réactives, en utilisant les dernières technologies pour garantir une expérience utilisateur fluide et agréable sur iOS et Android.",
-      icon: "📱",
+        "Nous intégrons des API de chatbot puissantes comme ChatGPT pour offrir des solutions de réponse aux questions adaptées à vos besoins. Nous assurons une intégration fluide dans vos plateformes existantes.",
+      icon: "🔗",
       subServices: [
-        "Applications natives pour iOS et Android",
-        "Applications hybrides avec React Native",
-        "Applications sur mesure adaptées aux besoins des utilisateurs",
+        "Intégration de l'API ChatGPT dans vos applications",
+        "Développement d'applications conversationnelles",
+        "Création d'un système de réponse intelligent et évolutif",
       ],
     },
     {
-      title: "SEO & Marketing Digital",
+      title: "Analyse et Amélioration des Réponses",
       description:
-        "Notre expertise en SEO et marketing digital vous aide à améliorer la visibilité de votre entreprise en ligne. Nous mettons en place des stratégies personnalisées pour booster votre présence sur les moteurs de recherche et les réseaux sociaux.",
-      icon: "📈",
+        "Nous offrons des services pour analyser et améliorer les réponses de vos chatbots afin de garantir une expérience utilisateur optimale. Nous optimisons les performances et l'exactitude des réponses en fonction des interactions passées.",
+      icon: "📊",
       subServices: [
-        "Optimisation pour les moteurs de recherche (SEO)",
-        "Publicité en ligne (Google Ads, Facebook Ads)",
-        "Stratégies de contenu et de gestion de communautés",
+        "Analyse des performances du chatbot",
+        "Optimisation des réponses en fonction des utilisateurs",
+        "Amélioration continue via apprentissage automatique",
       ],
     },
   ];
