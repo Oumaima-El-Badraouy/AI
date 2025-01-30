@@ -3,36 +3,36 @@ import React from 'react';
 const Services = () => {
   const services = [
     {
-      title: "Chatbot pour Répondre aux Questions",
+      title: "Chatbot for Answering Questions",
       description:
-        "Nous créons des chatbots intelligents qui répondent à toutes vos questions grâce à des technologies avancées comme l'API de ChatGPT. Ces chatbots peuvent être intégrés à des sites web, applications et plateformes pour fournir une assistance instantanée aux utilisateurs.",
+        "We create intelligent chatbots that answer all your questions using advanced technologies like the ChatGPT API. These chatbots can be integrated into websites, apps, and platforms to provide instant assistance to users.",
       icon: "🤖",
       subServices: [
-        "Réponses automatisées à des questions fréquemment posées",
-        "Support client 24/7 via chatbot",
-        "Solutions personnalisées pour chaque entreprise",
+        "Automated responses to frequently asked questions",
+        "24/7 customer support via chatbot",
+        "Custom solutions tailored for each business",
       ],
     },
     {
-      title: "Intégration d'API pour Chatbots",
+      title: "API Integration for Chatbots",
       description:
-        "Nous intégrons des API de chatbot puissantes comme ChatGPT pour offrir des solutions de réponse aux questions adaptées à vos besoins. Nous assurons une intégration fluide dans vos plateformes existantes.",
+        "We integrate powerful chatbot APIs like ChatGPT to provide tailored question-answering solutions. We ensure smooth integration into your existing platforms.",
       icon: "🔗",
       subServices: [
-        "Intégration de l'API ChatGPT dans vos applications",
-        "Développement d'applications conversationnelles",
-        "Création d'un système de réponse intelligent et évolutif",
+        "Integration of ChatGPT API into your applications",
+        "Development of conversational applications",
+        "Creation of an intelligent, scalable response system",
       ],
     },
     {
-      title: "Analyse et Amélioration des Réponses",
+      title: "Response Analysis and Improvement",
       description:
-        "Nous offrons des services pour analyser et améliorer les réponses de vos chatbots afin de garantir une expérience utilisateur optimale. Nous optimisons les performances et l'exactitude des réponses en fonction des interactions passées.",
+        "We offer services to analyze and improve your chatbot's responses to ensure an optimal user experience. We optimize performance and accuracy of responses based on past interactions.",
       icon: "📊",
       subServices: [
-        "Analyse des performances du chatbot",
-        "Optimisation des réponses en fonction des utilisateurs",
-        "Amélioration continue via apprentissage automatique",
+        "Analysis of chatbot performance",
+        "Optimization of responses based on user interactions",
+        "Continuous improvement via machine learning",
       ],
     },
   ];
@@ -41,7 +41,7 @@ const Services = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="max-w-4xl p-6 bg-white rounded-2xl shadow-lg">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          Nos Services
+          Our Services
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => (
@@ -55,7 +55,7 @@ const Services = () => {
               </h3>
               <p className="text-gray-600 mt-2">{service.description}</p>
               <h4 className="text-lg font-semibold text-gray-700 mt-4">
-                Sous-services :
+                Sub-services:
               </h4>
               <ul className="list-disc list-inside text-gray-600">
                 {service.subServices.map((subService, idx) => (
