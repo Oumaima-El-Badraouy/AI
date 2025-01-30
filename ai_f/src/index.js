@@ -4,12 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import NavBar from './home/navBar';
-
+import Login from './home/Login';
+import SignUp from './home/SignUp';
+import Footer from './home/Footer';
+import ChatPage from './home/ChatPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    <NavBar/>
+    {/* <NavBar/>
+    <SignUp/> */}
+    <ChatPage/>
   </React.StrictMode>
 );
 
