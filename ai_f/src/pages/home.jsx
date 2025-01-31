@@ -19,7 +19,7 @@ export default function Home() {
 
                     <div className='mb-16'>
                         <img 
-                            src='/Slide4.png' 
+                            src='/Slide 4.png' 
                             alt='Chatbot Mockup' 
                             className='rounded-2xl shadow-2xl w-full max-w-4xl mx-auto transform hover:scale-105 transition-transform duration-300 border-4 border-white'
                         />
