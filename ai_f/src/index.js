@@ -6,15 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import NavBar from './home/navBar';
 import Login from './home/Login';
 import SignUp from './home/SignUp';
-import Footer from './home/Footer';import Services from './home/Services';
+import Services from './home/Services';
 import ChatPage from './home/ChatPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-    {/* <NavBar/>
-    <SignUp/> */}
-    <Services/>
+   <NavBar/>
+    {/* <SignUp/>  */}
+    {/* <Services/> */}
+    {/* <ChatPage/>  */}
   </React.StrictMode>
 );
 

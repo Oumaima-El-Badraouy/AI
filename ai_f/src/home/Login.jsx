@@ -86,7 +86,7 @@ const Login = () => {
         </div>
 
         <div className="flex flex-col items-center space-y-2">
-        <button className="w-3/5 flex items-center justify-center gap-2 bg-black text-white py-2 rounded-lg hover:bg-black">
+        <button className="w-full flex items-center justify-center gap-2 bg-black text-white py-2 rounded-lg hover:bg-black">
             <img
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               alt="Google"
@@ -95,7 +95,7 @@ const Login = () => {
             Google
           </button>
 
-          <button className="w-3/5 flex items-center justify-center gap-2 bg-blue-800 text-white py-2 rounded-lg hover:bg-blue-900">
+          <button className="w-full flex items-center justify-center gap-2 bg-blue-800 text-white py-2 rounded-lg hover:bg-blue-900">
             <img
               src="https://www.svgrepo.com/show/448224/facebook.svg"
               alt="Facebook"
