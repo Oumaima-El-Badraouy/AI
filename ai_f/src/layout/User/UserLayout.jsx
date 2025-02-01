@@ -16,9 +16,8 @@ export default function UserLayout(){
             <nav className="backdrop-filter backdrop-blur-lg bg-opacity-30 border-gray-200 dark:bg-gray-900">
                 <div className="max-w-screen-3xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span> */}
-                    <h1 className='text-2xl text-blue-800'> <strong>LOGO</strong></h1>
+                    <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo" />
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">QuickAI</span> 
                 </a>
                 <div className="flex md:order-2">
                     <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" className="md:hidden text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 me-1">
@@ -54,7 +53,7 @@ export default function UserLayout(){
                     </div>
                     <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:backdrop-filter md:backdrop-blur-lg md:bg-opacity-30 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                         <li className={`text-${location.pathname === '/' ? 'blu-700':''}`}  >
-                            <Link to={HomePage} className={`block py-2 px-3  bg-blue-700 rounded-sm md:bg-transparent md:text-${location.pathname === '/' ? 'blue-700':'gray-900'} md:p-0 md:dark:text-blue-500" aria-current="page`}>Home</Link>
+                            <Link to={HomePage} className={`block py-2 px-3 text-gray-900 bg-blue-700 rounded-sm md:bg-transparent md:hover:text-blue-700 md:text-${location.pathname === '/' ? 'blue-700':'gray-900'} md:p-0 md:dark:text-blue-500" aria-current="page`}>Home</Link>
                         </li>
                         <li>
                             <Link to={ServicesPage} className={`block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:text-${location.pathname === '/services' ? 'blue-700' : 'gray-900'} md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700`}>Services</Link>
@@ -72,15 +71,15 @@ export default function UserLayout(){
         </header>
         <main>
             <Outlet/>
-        </main>
+        </main> 
         <footer className="bg-gray-700 text-white py-6">
             <div className="max-w-7xl mx-auto px-6">
               <div className="flex flex-col md:flex-row justify-between items-center">
                 {/* Information about Flowbit */}
                 <div className="text-center md:text-left">
-                  <h3 className="text-2xl font-semibold">Flowbit</h3>
+                  <h3 className="text-2xl font-semibold">QuickAI</h3>
                   <p className="text-gray-300 mt-2">
-                    Flowbit is an intelligent chatbot powered by ChatGPT, capable of answering all your questions.
+                    QuickAI is an intelligent chatbot powered by ChatGPT, capable of answering all your questions.
                   </p>
                 </div>
         

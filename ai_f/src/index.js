@@ -1,23 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+// import App from './App';
 import reportWebVitals from './reportWebVitals';
-import NavBar from './pages/navBar';
-import Login from './pages/Login';
-import Home from './pages/home';
-import UserLayout from './layout/User/UserLayout';
-import ChatPage from './home/ChatPage';
-import { BrowserRouter } from 'react-router-dom';
 
+import App from './route';
+
+import ChatPage from './home/ChatPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-   <UserLayout/>
-    {/* <SignUp/>  */}
-    {/* <Services/> */}
-    {/* <ChatPage/>  */}
+    {/* <App/> */}<ChatPage/>
   </React.StrictMode>
 );
 
