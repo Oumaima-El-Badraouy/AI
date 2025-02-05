@@ -9,23 +9,40 @@ const ChatPage = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (input.trim()) {
       const newMessage = { sender: 'user', text: input };
-
+  
       // Add the user's message to the chat
       const updatedMessages = [...messages, newMessage];
-
-      // Simulate a response from the chatbot
-      setTimeout(() => {
-        const botMessage = { sender: 'bot', text: "This is a response from the bot." };
-        const finalMessages = [...updatedMessages, botMessage];
-        setMessages(finalMessages);
-      }, 1000);
-
+  
+      setMessages(updatedMessages);
+  
+      try {
+        const response = await fetch('http://localhost:5000/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ message: input }),
+        });
+        const data = await response.json();
+  
+        // Add the bot's response to the chat
+        const botMessage = {
+          sender: 'bot',
+          text: `ChatGPT: ${data.botResponse}\nRAG: ${data.ragResponse}`,
+        };
+  
+        setMessages([...updatedMessages, botMessage]);
+      } catch (error) {
+        console.error("Error sending message:", error);
+      }
+  
       setInput(""); // Clear input after sending
     }
   };
+  
 
   const handleFileChange = (e) => {
     const uploadedFile = e.target.files[0];
