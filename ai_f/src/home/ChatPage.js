@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faCloudUploadAlt, faSignOutAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
@@ -56,6 +56,11 @@ const ChatPage = () => {
     setCurrentChat(chat); // Set the selected chat as current
   };
 
+  const handleLogout = () => {
+    // Handle logout logic here
+    console.log("User logged out");
+  };
+
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar with Chat History */}
@@ -72,21 +77,34 @@ const ChatPage = () => {
             </div>
           ))}
         </div>
-        <div className="absolute top-4 left-4">
-          {/* New Chat Button */}
+      
+
+        {/* Profile and Logout Section */}
+        <div className="absolute bottom-4 left-4 flex items-center space-x-4">
+          {/* Profile Icon */}
+          <div className="relative w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center">
+            <FontAwesomeIcon icon={faUserCircle} size="lg" />
+          </div>
           <button
             onClick={handleNewChat}
-            className="p-3 bg-red-500 text-white rounded-lg"
+            className="w-3/4 p-2 bg-white text-black rounded-lg"
           >
             Start New Chat
+          </button>
+          {/* Logout Icon */}
+          <button
+            onClick={handleLogout}
+            className="text-white hover:text-gray-300 flex items-center"
+          >
+            <strong className='text-gray-200'>Logout</strong><FontAwesomeIcon icon={faSignOutAlt} size="lg" className='ml-2' /> 
           </button>
         </div>
       </div>
 
       {/* Chat Area */}
-      <div className="flex-1 flex flex-col p-4 pt-16">
-        {/* Chat History */}
-        <div className="flex flex-col space-y-4 flex-grow overflow-y-auto">
+      <div className="flex-1 flex flex-col">
+        {/* Chat Messages */}
+        <div className="flex-grow overflow-y-auto p-4">
           {messages.map((msg, index) => (
             <div
               key={index}
@@ -112,7 +130,7 @@ const ChatPage = () => {
         </div>
 
         {/* Input, File Upload, and Send Message at the bottom */}
-        <div className="bg-white p-4 border-t border-gray-200 fixed bottom-0 left-0 right-0">
+        <div className="bg-white p-4 border-t border-gray-200">
           <div className="flex items-center space-x-3">
             <input
               type="text"

@@ -5,12 +5,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 // import App from './route';
+import App from './route';
+
 import ChatPage from './home/ChatPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App/> */}
     <ChatPage/>
+    {/* <App/> */}
   </React.StrictMode>
 );
 
