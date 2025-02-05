@@ -4,11 +4,13 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import App from './route';
+// import App from './route';
+import ChatPage from './home/ChatPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App/>
+    {/* <App/> */}
+    <ChatPage/>
   </React.StrictMode>
 );
 
