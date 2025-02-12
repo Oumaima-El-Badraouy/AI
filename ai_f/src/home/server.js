@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -10,16 +9,15 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-const OPENAI_API_KEY = `    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`;
+// Replace with your Hugging Face API key
+const OPENAI_API_KEY = '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';
 
-// Fonction pour interroger ChatGPT
-async function getChatGPTResponse(userMessage) {
+async function getHuggingFaceResponse(userMessage) {
     try {
         const response = await axios.post(
-            'https://api.openai.com/v1/chat/completions',
+            'https://api-inference.huggingface.co/models/gpt2', // Use GPT-2
             {
-                model: "gpt-4",
-                messages: [{ role: "user", content: userMessage }],
+                inputs: userMessage,
             },
             {
                 headers: {
@@ -28,36 +26,37 @@ async function getChatGPTResponse(userMessage) {
                 }
             }
         );
-        return response.data.choices[0].message.content;
+        return response.data[0].generated_text;
     } catch (error) {
-        console.error("Erreur avec ChatGPT:", error);
-        return "Erreur lors de la récupération de la réponse de ChatGPT.";
+        console.error("Erreur avec Hugging Face:", error.response ? error.response.data : error.message);
+        return "Erreur lors de la récupération de la réponse de Hugging Face.";
     }
 }
 
-// Fonction simulée pour le RAG (remplace ceci par ton vrai RAG)
 async function getRAGResponse(userMessage) {
-    // Ici, tu peux intégrer une base de données ou un modèle spécifique.
     return `Réponse RAG basée sur: "${userMessage}" (simulée)`;
 }
 
-// Route principale du chatbot
 app.post('/chat', async (req, res) => {
-    const { message } = req.body;
+    try {
+        const { message } = req.body;
 
-    if (!message) {
-        return res.status(400).json({ error: "Aucun message envoyé." });
+        if (!message) {
+            return res.status(400).json({ error: "Aucun message envoyé." });
+        }
+
+        console.log(`Question reçue : ${message}`);
+
+        const botResponse = await getHuggingFaceResponse(message);
+        const ragResponse = await getRAGResponse(message);
+
+        res.json({ botResponse, ragResponse });
+    } catch (error) {
+        console.error('Error in /chat route:', error);
+        res.status(500).json({ error: "Une erreur interne s'est produite." });
     }
-
-    console.log(`Question reçue : ${message}`);
-
-    const botResponse = await getChatGPTResponse(message);
-    const ragResponse = await getRAGResponse(message);
-
-    res.json({ botResponse, ragResponse });
 });
 
 app.listen(PORT, () => {
     console.log(`Serveur en cours d'exécution sur http://localhost:${PORT}`);
 });
-

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPaperPlane, faCloudUploadAlt, faSignOutAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ChatPage = () => {
   const [messages, setMessages] = useState([]);
@@ -9,41 +9,23 @@ const ChatPage = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
 
-  const handleSendMessage = async () => {
+  const handleSendMessage = () => {
     if (input.trim()) {
       const newMessage = { sender: 'user', text: input };
-  
+
       // Add the user's message to the chat
       const updatedMessages = [...messages, newMessage];
-  
-      setMessages(updatedMessages);
-  
-      try {
-        const response = await fetch('http://localhost:5000/chat', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ message: input }),
-        });
-        const data = await response.json();
-  
-        // Add the bot's response to the chat
-        const botMessage = {
-          sender: 'bot',
-          text: `ChatGPT: ${data.botResponse}\nRAG: ${data.ragResponse}`,
-        };
-  
-        setMessages([...updatedMessages, botMessage]);
-        console.log(data.botResponse)
-      } catch (error) {
-        console.error("Error sending message:", error);
-      }
-  
+
+      // Simulate a response from the chatbot
+      setTimeout(() => {
+        const botMessage = { sender: 'bot', text: "This is a response from the bot." };
+        const finalMessages = [...updatedMessages, botMessage];
+        setMessages(finalMessages);
+      }, 1000);
+
       setInput(""); // Clear input after sending
     }
   };
-  
 
   const handleFileChange = (e) => {
     const uploadedFile = e.target.files[0];
@@ -74,11 +56,6 @@ const ChatPage = () => {
     setCurrentChat(chat); // Set the selected chat as current
   };
 
-  const handleLogout = () => {
-    // Handle logout logic here
-    console.log("User logged out");
-  };
-
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar with Chat History */}
@@ -95,34 +72,21 @@ const ChatPage = () => {
             </div>
           ))}
         </div>
-      
-
-        {/* Profile and Logout Section */}
-        <div className="absolute bottom-4 left-4 flex items-center space-x-4">
-          {/* Profile Icon */}
-          <div className="relative w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center">
-            <FontAwesomeIcon icon={faUserCircle} size="lg" />
-          </div>
+        <div className="absolute top-4 left-4">
+          {/* New Chat Button */}
           <button
             onClick={handleNewChat}
-            className="w-3/4 p-2 bg-white text-black rounded-lg"
+            className="p-3 bg-red-500 text-white rounded-lg"
           >
             Start New Chat
-          </button>
-          {/* Logout Icon */}
-          <button
-            onClick={handleLogout}
-            className="text-white hover:text-gray-300 flex items-center"
-          >
-            <strong className='text-gray-200'>Logout</strong><FontAwesomeIcon icon={faSignOutAlt} size="lg" className='ml-2' /> 
           </button>
         </div>
       </div>
 
       {/* Chat Area */}
-      <div className="flex-1 flex flex-col">
-        {/* Chat Messages */}
-        <div className="flex-grow overflow-y-auto p-4">
+      <div className="flex-1 flex flex-col p-4 pt-16">
+        {/* Chat History */}
+        <div className="flex flex-col space-y-4 flex-grow overflow-y-auto">
           {messages.map((msg, index) => (
             <div
               key={index}
@@ -148,7 +112,7 @@ const ChatPage = () => {
         </div>
 
         {/* Input, File Upload, and Send Message at the bottom */}
-        <div className="bg-white p-4 border-t border-gray-200">
+        <div className="bg-white p-4 border-t border-gray-200 fixed bottom-0 left-0 right-0">
           <div className="flex items-center space-x-3">
             <input
               type="text"
